@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import DescriptionCard from "./components/DescriptionCard";
 import Form from "./components/Form";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Header />
           <DescriptionCard />
           <Form />
+          <Footer />
         </Box>
       </Container>
     </>

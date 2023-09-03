@@ -3,30 +3,31 @@ import ContainerBox from "./ContainerBox";
 import NewTextField from "./NewTextField";
 import RadioGroupInput from "./RadioGroupInput";
 import DropDown from "./DropDown";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
+const INITIAL_STATE = {
+  email: "",
+  fullName: "",
+  age: "",
+  education: "",
+  intituteOfEducation: "",
+  courseOfEducation: "",
+  experience: "",
+  intitute: "",
+  program: "",
+  countyOfApplication: "",
+  futureGoals: "",
+  scoreEnglishListening: "",
+  scoreEnglishReading: "",
+  scoreEnglishSpeaking: "",
+  scoreEnglishWriting: "",
+  payTutionFee: "yes",
+  tutionFee: "",
+  gic: "yes",
+  payGIC: "",
+};
 function Form() {
-  const [formData, setFormData] = useState({
-    email: "",
-    fullName: "",
-    age: "",
-    education: "",
-    intituteOfEducation: "",
-    courseOfEducation: "",
-    experience: "",
-    intitute: "",
-    program: "",
-    countyOfApplication: "",
-    futureGoals: "",
-    scoreEnglishListening: "",
-    scoreEnglishReading: "",
-    scoreEnglishSpeaking: "",
-    scoreEnglishWriting: "",
-    payTutionFee: "yes",
-    tutionFee: "",
-    gic: "yes",
-    payGIC: "",
-  });
+  const [formData, setFormData] = useState(INITIAL_STATE);
   const inputsOrder = useMemo(() => {
     return [
       {
@@ -159,6 +160,10 @@ function Form() {
       }
     }
   };
+
+  const handleReset = () => {
+    setFormData(INITIAL_STATE);
+  };
   return (
     <div>
       {inputsOrder.map((item) => (
@@ -191,7 +196,7 @@ function Form() {
         </div>
       ))}
       <div className="button__container">
-        <div className="buttons">
+        <Box component="div" className="buttons">
           <Button
             variant="contained"
             type="submit"
@@ -199,16 +204,16 @@ function Form() {
           >
             Submit
           </Button>
-          <div className="pagination">
+          <Box component="div" className="pagination">
             <div className="progress__container">
               <div className="progress" style={{ width: "100%" }} />
             </div>
             <div>Page 1 of 1</div>
-          </div>
-          <Button variant="text" type="submit" onClick={(e) => handleSubmit(e)}>
+          </Box>
+          <Button variant="text" type="submit" onClick={() => handleReset()}>
             Clear form
           </Button>
-        </div>
+        </Box>
       </div>
       <div className="warning__container">
         <div className="password__warning">

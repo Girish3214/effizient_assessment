@@ -171,3 +171,33 @@ body {
   padding-top: 0;
   margin-top: 0;
 }
+
+.footer__container {
+  font: 400 12px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  margin: 16px 0;
+  padding: 0 16px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.66);
+}
+
+.footer__container > a {
+  color: rgba(0, 0, 0, 0.66);
+}
+
+@media screen and (max-width: 600px) {
+  .form__description {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+  .container__title {
+    font-size: 14px;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pagination {
+    flex-direction: column;
+  }
+}
