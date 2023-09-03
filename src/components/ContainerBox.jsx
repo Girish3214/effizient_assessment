@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import React from "react";
 
-function ContainerBox({ children, topBlue, title }) {
+function ContainerBox({ children, topBlue, title, error, id }) {
   if (topBlue) {
     return (
       <Container className="main__container" style={{ position: "relative" }}>
@@ -34,7 +34,10 @@ function ContainerBox({ children, topBlue, title }) {
     );
   }
   return (
-    <Container className="main__container">
+    <Container
+      id={id}
+      className={`main__container ${error ? "container__error" : ""}`}
+    >
       <div className="container__title">
         {title} <span className="required">*</span>
       </div>

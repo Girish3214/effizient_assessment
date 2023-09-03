@@ -1,7 +1,11 @@
 :root {
   font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --error: rgb(217, 48, 37);
 }
 
+#root {
+  padding-bottom: 2rem;
+}
 body {
   margin: 0;
   min-width: 320px;
@@ -20,7 +24,9 @@ body {
   border-radius: 8px;
 }
 
-.main__container {
+.main__container,
+.buttons,
+.warning__container {
   width: 80%;
   margin-top: 12px;
 
@@ -34,6 +40,25 @@ body {
   word-wrap: break-word;
 }
 
+.main__container.container__error {
+  border-color: var(--error);
+}
+
+.error__message {
+  display: none;
+  color: var(--error);
+  font-size: 0.8rem;
+}
+.error__message > span:first-child {
+  font-size: 0.6rem;
+  border: 1px solid var(--error);
+  border-radius: 50%;
+  padding: 4px;
+  margin-right: 0.5rem;
+}
+.main__container.container__error .error__message {
+  display: block !important ;
+}
 .blue__heading {
   background-color: rgb(5, 160, 250);
   color: rgba(0, 0, 0, 1);
@@ -78,7 +103,7 @@ body {
 }
 
 .required__container {
-  color: rgb(217, 48, 37);
+  color: var(--error);
   margin-top: 24px;
 
   font-size: 14px;
@@ -88,6 +113,61 @@ body {
 }
 
 .required {
-  color: rgb(217, 48, 37);
+  color: var(--error);
   margin-left: 5px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress__container {
+  background-color: rgb(103, 109, 114);
+  border-radius: 40px;
+  width: 184px;
+  height: 10px;
+}
+
+.progress__container > .progress {
+  background-color: #34a853;
+  border-radius: 40px;
+  height: 10px;
+}
+
+.button__container,
+.warning__container {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons,
+.password__warning {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.buttons > button {
+  text-transform: none;
+}
+
+.password__warning {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.66);
+  margin-top: 8px;
+}
+.warning__container {
+  width: 100%;
+  justify-content: center;
+  padding-top: 0;
+  margin-top: 0;
 }
