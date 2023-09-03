@@ -35,7 +35,9 @@ function ContainerBox({ children, topBlue, title }) {
   }
   return (
     <Container className="main__container">
-      <div className="container__title">{title}</div>
+      <div className="container__title">
+        {title} <span className="required">*</span>
+      </div>
       <div>{children}</div>
     </Container>
   );
