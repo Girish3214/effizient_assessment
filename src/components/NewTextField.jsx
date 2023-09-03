@@ -1,14 +1,15 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 
-function NewTextInput({ label, name, value, onChange }) {
+function NewTextInput({ name, value, onChange, fillWidth, placeholder }) {
   return (
     <TextField
-      placeholder={label}
+      placeholder={placeholder}
       name={name}
       value={value}
       onChange={onChange}
-      fullWidth
+      fullWidth={fillWidth}
+      sx={{ width: fillWidth ? "100%" : "60%" }}
       variant="standard"
       margin="normal"
     />
