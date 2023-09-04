@@ -1,8 +1,33 @@
-# React + Vite
+# Effizient Assignment
+This repository contains a React project initialized with Vite, a fast build tool for modern web development. It provides a quick and efficient setup for creating React applications with built-in support for modern JavaScript features.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Prerequisites
 
-Currently, two official plugins are available:
+- Node.js (version 12 or higher)
+- npm (Node Package Manager) or yarn
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Girish3214/effizient_assessment.git
+2. cd in to repo:
+
+   ```bash
+   cd effizient_assessment
+
+3. install node modules:
+
+   ```bash
+   npm install
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+
+5. After above step to run the project in brower open below link:
+
+  >[Local server](http://localhost:5173/)
+
