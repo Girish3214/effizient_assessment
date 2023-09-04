@@ -25,8 +25,15 @@ function Modal({ open, handleClose }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={(e) => handleClose(e, "clear")}>Clear form</Button>
+          <Button sx={{ textTransform: "none" }} onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button
+            sx={{ textTransform: "none" }}
+            onClick={(e) => handleClose(e, "clear")}
+          >
+            Clear form
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
