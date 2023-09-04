@@ -27,6 +27,7 @@ function NewTextInput({ item, name, value, onChange, fillWidth, placeholder }) {
         placeholder={placeholder}
         name={name}
         value={value}
+        type={name === "email" ? "email" : "text"}
         onChange={handleChange}
         fullWidth={fillWidth}
         sx={{ width: { sm: "100%", md: fillWidth ? "100%" : "60%" } }}

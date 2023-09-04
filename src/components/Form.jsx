@@ -1,11 +1,15 @@
-import React, { useMemo, useState } from "react";
-import ContainerBox from "./ContainerBox";
+import React, { useMemo, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { doc, setDoc } from "firebase/firestore";
+
 import NewTextField from "./NewTextField";
 import RadioGroupInput from "./RadioGroupInput";
 import DropDown from "./DropDown";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Modal from "./Modal";
+
+import db from "../firebase/firebase";
 
 const INITIAL_STATE = {
   email: "",
@@ -28,9 +32,11 @@ const INITIAL_STATE = {
   gic: "yes",
   payGIC: "",
 };
-function Form() {
+function Form({ setFormSumitted }) {
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const formRef = useRef();
 
   const inputsOrder = useMemo(() => {
     return [
@@ -162,6 +168,27 @@ function Form() {
         return;
       }
     }
+
+    setDoc(doc(db, "SOP", formData.email), formData).then((res) => {
+      emailjs
+        .sendForm(
+          "service_tta5tli",
+          "template_ou2gs3d",
+          formRef.current,
+          "wEywtjo9HIaU5G7Ta"
+        )
+        .then(
+          (result) => {
+            console.log("Email sent successfully");
+            setFormSumitted(true);
+          },
+          (error) => {
+            setFormSumitted(true);
+
+            console.log("Something went wrong try again later", error.text);
+          }
+        );
+    });
   };
 
   const handleReset = () => {
@@ -175,7 +202,7 @@ function Form() {
     setModalOpen(false);
   };
   return (
-    <div>
+    <form ref={formRef}>
       <Modal
         open={modalOpen}
         handleClose={(e, type) => handleModalClose(type)}
@@ -234,7 +261,7 @@ function Form() {
           <div>Never submit passwords through Google Forms.</div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
