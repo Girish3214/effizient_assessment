@@ -31,3 +31,6 @@ This repository contains a React project initialized with Vite, a fast build too
 
   >[Local server](http://localhost:5173/)
 
+
+### Database storage Image
+<img src="https://github.com/Girish3214/effizient_assessment/blob/master/src/assets/git-images/effizient_storage.png?raw=true" width="800" height="600">
