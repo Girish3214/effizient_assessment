@@ -5,7 +5,6 @@ import ContainerBox from "./ContainerBox";
 function NewTextInput({ item, name, value, onChange, fillWidth, placeholder }) {
   const [error, setError] = useState(false);
   const handleError = () => {
-    console.log(value);
     if (!value) {
       setError(true);
     } else {

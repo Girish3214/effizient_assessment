@@ -3,7 +3,9 @@ import ContainerBox from "./ContainerBox";
 import NewTextField from "./NewTextField";
 import RadioGroupInput from "./RadioGroupInput";
 import DropDown from "./DropDown";
-import { Box, Button } from "@mui/material";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Modal from "./Modal";
 
 const INITIAL_STATE = {
   email: "",
@@ -28,6 +30,8 @@ const INITIAL_STATE = {
 };
 function Form() {
   const [formData, setFormData] = useState(INITIAL_STATE);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const inputsOrder = useMemo(() => {
     return [
       {
@@ -151,7 +155,6 @@ function Form() {
     e.preventDefault();
 
     for (const key in formData) {
-      console.log(key);
       if (!formData[key]) {
         const errorElement = document.getElementById(key);
         errorElement?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -162,10 +165,21 @@ function Form() {
   };
 
   const handleReset = () => {
-    setFormData(INITIAL_STATE);
+    setModalOpen(true);
+  };
+
+  const handleModalClose = (type) => {
+    if (type === "clear") {
+      setFormData(INITIAL_STATE);
+    }
+    setModalOpen(false);
   };
   return (
     <div>
+      <Modal
+        open={modalOpen}
+        handleClose={(e, type) => handleModalClose(type)}
+      />
       {inputsOrder.map((item) => (
         <div key={item.name}>
           {item.type === "radio" ? (
